@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: activeMQ
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Mr Zhang
+Implementation-Vendor-Id: activeMQ
+Build-Jdk: 1.8.0_131
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/activeMQ
+Created-By: Maven Integration for Eclipse
+

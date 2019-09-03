@@ -1,0 +1,61 @@
+server:
+  port: 8001
+  servlet: 
+    session:  
+      timeout: 
+        7200
+# 配置mybatis-plus
+mybatis-plus:
+  # 配置扫描xml
+  mapper-locations: classpath*:mybatis/**/*.xml
+  # 实体扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.ptw.pojo
+logging:
+  level:
+    root: info
+    com: # 根据本地包修改日志级别
+      ptw: 
+        mapper: debug
+spring:
+  thymeleaf:
+    cache: false
+  profiles: 
+    active: dev
+jasypt:
+  encryptor:
+    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ7
+---
+spring:
+  profiles: dev #开发环境
+  datasource: 
+    url: jdbc:mysql://127.0.0.1:3306/ofcms02
+    username: root 
+    password: mysqladmin
+    driver: driver-class-name=com.mysql.jdbc.Driver
+    connection-timeout: 1800000
+  activemq:
+    broker-url: tcp://localhost:61616
+    in-memory: true
+    pool:
+      enabled: false   
+      max-connections: 100
+      #idle-timeout: 3000
+    packages:
+      trust-all: true
+system-params: 
+  imagePath: E://image//
+  beisenURL: http://10.10.130.72:7001/
+url: tcp://127.0.0.1:61616  
+---
+spring:
+  profiles: release #生产环境
+  datasource: 
+    url: jdbc:sqlserver://172.16.2.239:1433;Databasename=RealTourR8
+    username: realtour
+    password: ENC(VHSycrGLNcB7FexErFJNr006JGcDsL/P)
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    connection-timeout: 1800000
+system-params: 
+  imagePath: /home/image/
+  beisenURL: http://10.10.170.93:7001/
+ 
